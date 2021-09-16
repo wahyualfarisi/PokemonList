@@ -8,13 +8,102 @@
         <link href="{{asset('css/app.css')}}" rel="stylesheet">
     </head>
     <body>
-       <header>
+       <header class="header">
            <h2 class="header_name">Pokemon List</h2>
            <div class="header_action">
-                <a href="javascript:void(0)" class="link"> My Pokemon List </a>
+                <a href="javascript:void(0)" class="link"> My Pokemon List ( 13 ) </a>
            </div>
        </header>
-       <main id="main"></main>
+       <main id="main">
+           <ul class="pokemon_collection">
+                <li>
+                    <a href="javascript:void(0)" class="pokemon_collection-item"> 
+                        <figure class="pokemon_collection-image">
+                            <img 
+                                class="pokemon_collection-image-item"
+                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+                                alt="hm"
+                            >
+                        </figure>
+                        <div class="pokemon_collection-info">
+                            <h3 class="pokemon_collection-name">Bulbasaur</h3>
+                            <span>Grass</span>
+                            <span>Poison</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Ivysaur</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">VenuSaur</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Charmander</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Charmander</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Charmander</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+           </ul>
+       </main>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
        <script src="{{asset('js/app-ui.js')}}"></script>
        <script src="{{asset('js/app-controller.js')}}"></script>
