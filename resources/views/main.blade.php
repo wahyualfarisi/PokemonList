@@ -15,13 +15,17 @@
            </div>
        </header>
        <main id="main">
+           <div class="pagination">
+               <button class="pagination-prev">PREV</button>
+               <button class="pagination-next">NEXT</button>
+           </div>
            <ul class="pokemon_collection">
                 <li>
                     <a href="javascript:void(0)" class="pokemon_collection-item"> 
                         <figure class="pokemon_collection-image">
                             <img 
                                 class="pokemon_collection-image-item"
-                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" 
                                 alt="hm"
                             >
                         </figure>
@@ -36,7 +40,7 @@
                     <figure class="pokemon_collection-image">
                         <img 
                             class="pokemon_collection-image-item"
-                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png" 
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" 
                             alt="hm"
                         >
                     </figure>
@@ -50,7 +54,7 @@
                     <figure class="pokemon_collection-image">
                         <img 
                             class="pokemon_collection-image-item"
-                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" 
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" 
                             alt="hm"
                         >
                     </figure>
@@ -64,7 +68,7 @@
                     <figure class="pokemon_collection-image">
                         <img 
                             class="pokemon_collection-image-item"
-                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" 
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" 
                             alt="hm"
                         >
                     </figure>
@@ -78,7 +82,7 @@
                     <figure class="pokemon_collection-image">
                         <img 
                             class="pokemon_collection-image-item"
-                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png" 
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png" 
                             alt="hm"
                         >
                     </figure>
@@ -92,7 +96,63 @@
                     <figure class="pokemon_collection-image">
                         <img 
                             class="pokemon_collection-image-item"
-                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" 
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Charmander</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Charmander</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Charmander</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" 
+                            alt="hm"
+                        >
+                    </figure>
+                    <div class="pokemon_collection-info">
+                        <h3 class="pokemon_collection-name">Charmander</h3>
+                        <span>Grass</span>
+                        <span>Poison</span>
+                    </div>
+                </li>
+                <li class="pokemon_collection-item">
+                    <figure class="pokemon_collection-image">
+                        <img 
+                            class="pokemon_collection-image-item"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png" 
                             alt="hm"
                         >
                     </figure>
