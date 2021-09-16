@@ -58,6 +58,10 @@ ul {
   color: var(--color-scale-gray-1);
   font-size: 2.5rem;
 }
+.header_name > span {
+  font-size: 1.5rem;
+  color: var(--color-scale-blue-1);
+}
 .header_action > a {
   text-decoration: none;
   background-color: var(--color-scale-gray-5);
@@ -71,6 +75,40 @@ ul {
 main {
   width: 80%;
   margin: auto;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.3rem;
+  height: 50vh;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.pagination-info {
+  color: var(--color-scale-gray-2);
+  font-size: 0.9rem;
+}
+.pagination-info > span {
+  font-weight: 800;
+}
+.pagination-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: var(--color-scale-gray-1);
+  padding: 0.2rem 1rem;
+}
+.pagination-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .pokemon_collection {

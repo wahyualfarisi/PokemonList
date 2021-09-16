@@ -27,10 +27,16 @@ class Pokemon extends Controller
 
         $response = Http::get($this->API_URL."?offset=".$start."&limit=".$limit);
 
-        return response()->json([
-            'status' => $response->status(),
-            'page'   => $request->page,
-            'results'   => $response->json(),
-        ]);
+        if( $response->status() == 200 )
+            $total = $response->object()->count;
+            $last_page = ceil( $total / $limit );
+            return response()->json([
+                'status' => $response->status(),
+                'page'   => $request->page,
+                'last_page' => $last_page,
+                'data'   => $response->json(),
+            ]);
+        
+        
     }
 }

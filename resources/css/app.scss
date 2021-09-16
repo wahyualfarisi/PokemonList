@@ -60,6 +60,11 @@ ul {
     &_name {
         color: var(--color-scale-gray-1);
         font-size: 2.5rem;
+
+        & > span {
+            font-size: 1.5rem;
+            color: var(--color-scale-blue-1);
+        }
     }
 
     &_action {
@@ -76,11 +81,55 @@ ul {
 
 }
 //HEADER End ------------------------------------------------------------------------------------------------
-
 main {
     width: 80%;
     margin: auto;
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.3rem;
+    height: 50vh;
+}
+
+//pagination start
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    &-info {
+        color: var(--color-scale-gray-2);
+        font-size: .9rem;
+
+        & > span {
+            font-weight: 800;
+        }
+    }
+    &-action {
+
+    }
+   
+    &-btn {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background-color: var(--color-scale-gray-1);
+        padding: 0.2rem 1rem;
+        &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    }
+
+
+}
+
+//pagination end
 //Pokemon Collection Start-------------------------------------------------------------------------------
 .pokemon_collection {
     display: grid;
