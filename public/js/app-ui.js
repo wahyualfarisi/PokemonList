@@ -23,13 +23,14 @@ const AppUI = ( () => {
             let outputHTML = '';
             if(results.length > 0) {
                 results.forEach(item => {
+                    let id = item.url.split('/')[6];
                     outputHTML += `
                         <li>
-                            <a href="javascript:void(0)" class="pokemon_collection-item"> 
+                            <a href="#/list/${id}" class="pokemon_collection-item"> 
                                 <figure class="pokemon_collection-image">
                                     <img 
                                         class="pokemon_collection-image-item"
-                                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.url.split('/')[6]}.png" 
+                                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" 
                                         alt="hm"
                                     >
                                 </figure>

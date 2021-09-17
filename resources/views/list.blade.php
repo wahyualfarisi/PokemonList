@@ -7,27 +7,10 @@
         <button class="pagination-btn pagination-last">Last Page</button>
     </div>
 </div>
-<ul class="pokemon_collection">
-    {{-- <li>
-        <a href="javascript:void(0)" class="pokemon_collection-item"> 
-            <figure class="pokemon_collection-image">
-                <img 
-                    class="pokemon_collection-image-item"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" 
-                    alt="hm"
-                >
-            </figure>
-            <div class="pokemon_collection-info">
-                <h3 class="pokemon_collection-name">Bulbasaur</h3>
-                <span>Grass</span>
-                <span>Poison</span>
-            </div>
-        </a>
-    </li> --}}
-</ul>
-
+<ul class="pokemon_collection"></ul>
 <script>
     $(function() {
+        AppController.setHeaderName('.header_name', 'Pokemon <span>List</span> ');
         AppController.pokemonList();
     })
 </script>

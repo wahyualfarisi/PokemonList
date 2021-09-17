@@ -53,7 +53,6 @@ const AppController = ( ( REQ, UI ) => {
        REQ.get('/api/list', 'GET', 'JSON', { page }, response => {
            if(response.status === 200){
                 const { page, data, last_page} = response;
-                console.log(last_page)
                 LAST_PAGE = last_page;
                 UI.renderList(page,data)
            }
@@ -67,7 +66,6 @@ const AppController = ( ( REQ, UI ) => {
         $('.pagination-first').on('click', function() {
             getPokemonList( PAGE = 1 );
         })
-
         $('.pagination-next').on('click', function() {
             getPokemonList( ++PAGE );
         })
@@ -83,6 +81,7 @@ const AppController = ( ( REQ, UI ) => {
         init: () => {
             setRoute('#main');
         },
+        setHeaderName: (dom, html) =>  $(dom).html(html),
         pokemonList: () => {
             getPokemonList()
             paginationListener();

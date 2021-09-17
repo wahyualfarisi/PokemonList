@@ -140,3 +140,82 @@ main {
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
 }
+
+.pokemon-info {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  grid-column-gap: 5rem;
+}
+.pokemon-info-img {
+  border: 1px solid var(--color-scale-gray-1);
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
+.pokemon-info-img > img {
+  width: 100%;
+}
+.pokemon-info-btn {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.8rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.8rem;
+}
+.pokemon-info-btn-capture {
+  background-color: #1A381D;
+}
+.pokemon-info-desc-name {
+  font-size: 2.2rem;
+  color: var(--color-scale-gray-2);
+  border-bottom: 0.1rem solid var(--color-scale-gray-2);
+}
+.pokemon-info-desc-count {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 3rem;
+  margin-top: 3rem;
+}
+.pokemon-info-desc-count-item {
+  border: 1px solid var(--color-scale-gray-3);
+  padding: 1rem;
+}
+.pokemon-info-desc-count-item > h5 {
+  color: var(--color-scale-gray-1);
+  font-size: 0.9rem;
+}
+.pokemon-info-desc-count-item > h2 {
+  color: var(--color-scale-blue-6);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+.pokemon-info-desc-count-item > div {
+  color: var(--color-scale-gray-4);
+}
+.pokemon-info-desc-type {
+  margin-top: 3rem;
+}
+.pokemon-info-desc-type > h3 {
+  color: var(--color-scale-gray-2);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.pokemon-info-desc-type > span {
+  background-color: var(--color-scale-gray-2);
+  padding: 0.4rem 1rem;
+}
+.pokemon-info-desc-abilities {
+  margin-top: 3rem;
+}
+.pokemon-info-desc-abilities > h3 {
+  color: var(--color-scale-gray-2);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.pokemon-info-desc-abilities > span {
+  background-color: var(--color-scale-gray-2);
+  padding: 0.4rem 1rem;
+}

@@ -16,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('main');
 });
+//List of pokemon
 Route::get('/list', function() {
     return view('list');
 });
+//Pokemon Detail
+Route::get('/list/{id}', function() {
+    return view('detail');
+});
+
+//List of my pokemon after success capture that pokemon
 Route::get('/my-pokemon', function() {
     return view('myPokemon');
 });
