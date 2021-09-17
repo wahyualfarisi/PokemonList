@@ -77,6 +77,21 @@ const AppController = ( ( REQ, UI ) => {
         })
     }
 
+    const getPokemonDetail = ( id ) => {
+
+        //Fetch Pokemeon detail
+        REQ.get(`/api/list/${id}`, 'GET', 'JSON', {}, response => {
+            if(response.status === 200){
+                UI.renderDetail(response.data);
+            }
+        }, err => {
+            console.log(err);
+        })
+
+        //Event Listener tangkap pokemon
+
+    }
+
     return {
         init: () => {
             setRoute('#main');
@@ -85,6 +100,9 @@ const AppController = ( ( REQ, UI ) => {
         pokemonList: () => {
             getPokemonList()
             paginationListener();
+        },
+        detail: (id) => {
+            getPokemonDetail( id );
         }
     }
 })(RequestData, AppUI)

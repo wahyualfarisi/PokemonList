@@ -249,6 +249,9 @@ main {
             & > span {
                 background-color: var(--color-scale-gray-2);
                 padding: .4rem 1rem;
+                &:not(:last-child){
+                    margin-right: .9rem;
+                }
             }
         }
     }

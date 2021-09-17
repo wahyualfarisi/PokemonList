@@ -219,3 +219,6 @@ main {
   background-color: var(--color-scale-gray-2);
   padding: 0.4rem 1rem;
 }
+.pokemon-info-desc-abilities > span:not(:last-child) {
+  margin-right: 0.9rem;
+}

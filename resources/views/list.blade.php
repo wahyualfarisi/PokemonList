@@ -10,7 +10,7 @@
 <ul class="pokemon_collection"></ul>
 <script>
     $(function() {
-        AppController.setHeaderName('.header_name', 'Pokemon <span>List</span> ');
+        AppController.setHeaderName('.header_name', 'Pokemon <span>Lists</span> ');
         AppController.pokemonList();
     })
 </script>

@@ -1,5 +1,4 @@
 const AppUI = ( () => {
-
     return {
         renderList: (page, pokemons) => {
             const { next, previous, results } = pokemons;
@@ -45,6 +44,31 @@ const AppUI = ( () => {
 
             $('.pokemon_collection').html( outputHTML );
 
+        },
+        renderDetail: (data) => {
+            let typesOutput = '', abilitiesOutput = '';
+
+            const {id, name, abilities, types, weight, base_experience, height} = data;
+            
+            $('.pokemon-info-desc-name').text(name ? name : '-');
+            $('#weight').text(weight ? weight : '-');
+            $('#height').text(height ? height : '-');
+            $('#base_experience').text(base_experience ? base_experience : '-');
+
+            if(types.length > 0) {
+                types.forEach(item => {
+                    typesOutput += ` <span>${item.type.name}</span>`
+                })
+            }
+            if(abilities.length > 0){
+                abilities.forEach(item => {
+                    abilitiesOutput += `<span>${item.ability.name}</span>`;
+                })
+            }
+            $('.pokemon-info-desc-type').append(typesOutput);
+            $('.pokemon-info-desc-abilities').append(abilitiesOutput);
+            $('#pokemon-image').attr('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`);
+            console.log('render detail', data);
         }
     }
 })()

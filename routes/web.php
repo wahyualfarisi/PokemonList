@@ -21,8 +21,9 @@ Route::get('/list', function() {
     return view('list');
 });
 //Pokemon Detail
-Route::get('/list/{id}', function() {
-    return view('detail');
+Route::get('/list/{id}', function($id) {
+    $data['id'] = $id;
+    return view('detail', $data);
 });
 
 //List of my pokemon after success capture that pokemon
