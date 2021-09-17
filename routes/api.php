@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/list', 'App\Http\Controllers\api\Pokemon@index');
+Route::get('/list/{id}', 'App\Http\Controllers\api\Pokemon@detail');

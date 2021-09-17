@@ -11,6 +11,7 @@ class Pokemon extends Controller
 {
     private $API_URL = 'https://pokeapi.co/api/v2/pokemon';
 
+    //Get List of pokemon
     public function index(Request $request){
         $validateRequest = Validator::make($request->all(), [
             'page' => 'required'
@@ -27,7 +28,7 @@ class Pokemon extends Controller
 
         $response = Http::get($this->API_URL."?offset=".$start."&limit=".$limit);
 
-        if( $response->status() == 200 )
+        if( $response->status() == 200 ) {
             $total = $response->object()->count;
             $last_page = ceil( $total / $limit );
             return response()->json([
@@ -36,7 +37,28 @@ class Pokemon extends Controller
                 'last_page' => $last_page,
                 'data'   => $response->json(),
             ]);
-        
-        
+        } else { 
+            return response()->json([
+                'status' => false,
+                'error'  => 'Something went wrong'
+            ]);
+        }
     }
+
+    //Get Detail of pokemen by {id}
+    public function detail(Request $request, $id) {
+        try{
+            $response = Http::get($this->API_URL."/".$id);
+            return response()->json([
+                'status' => $response->status(),
+                'data'   => $response->json()
+            ]);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => false,
+                'error'  => $e->getMessage()
+            ]);
+        }
+    }
+
 }
