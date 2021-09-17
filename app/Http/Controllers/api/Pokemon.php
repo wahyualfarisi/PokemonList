@@ -61,4 +61,19 @@ class Pokemon extends Controller
         }
     }
 
+    public function random() {
+        try{
+            $random = rand(0, 1);
+            return response()->json([
+                'status' => true,
+                'isCaptured' => $random === 1 ? true : false
+            ]);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => false,
+                'error'  => 'Something went wrong'
+            ]);
+        }
+    }
+
 }
