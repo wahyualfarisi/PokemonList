@@ -129,14 +129,20 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
         });
 
         $('.modal-action-btn-submit').on('click', function() {
+            $('.pokemon-info-btn-capture').attr('disabled', true).text('CAPTURING...')
+            $('#modalConfirm').css('display','none');
+            let originalImage = $('#pokemon-image').attr('src');
+            $('#pokemon-image').attr('src','https://pbs.twimg.com/profile_images/344513261567479678/f97f5c6510994f677877b08320475008.gif')
             getProbability(res => {
                 if(res) {
+                    $('#pokemon-image').attr('src', originalImage);
                     alert('Success capture pokemon')
-                    $('#modalConfirm').css('display','none');
                     MY_POKEMON.addTolist( currentPokemon );
                     UI.updateMyPokemon( MY_POKEMON.getPokemons().length );
                     UI.updateButtonAction( currentPokemon );
                 }else{
+                    $('#pokemon-image').attr('src', originalImage);
+                    $('.pokemon-info-btn-capture').attr('disabled', false).text('CAPTURE')
                     alert('Failed Capture, Try Again')
                 }
             });
@@ -147,7 +153,9 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
     const getProbability = ( callback ) => {
         
         REQ.get('/api/random', 'GET','JSON', {}, response => {
-            callback(response.isCaptured);
+            setTimeout( () => {
+                callback(response.isCaptured);
+            }, 1500)
         })
     }
 

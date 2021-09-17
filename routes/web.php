@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//container 
 Route::get('/', function () {
     return view('main');
 });
+
 //List of pokemon
 Route::get('/list', function() {
     return view('list');
