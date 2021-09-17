@@ -11,7 +11,7 @@
        <header class="header">
            <h2 class="header_name"></h2>
            <div class="header_action">
-                <a href="#/my-pokemon" class="link"> My Pokemon List ( 13 ) </a>
+                <a href="#/my-pokemon" class="link"> My Pokemon List <span class="mypokemon-count"></span> </a>
            </div>
        </header>
        <main id="main"></main>

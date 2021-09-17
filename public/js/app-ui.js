@@ -1,4 +1,16 @@
 const AppUI = ( () => {
+    const BASE_URL_IMAGE = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
+
+    const updateButtonAction = ( data ) => {
+        let output;
+        if(data) {
+            output = `<button class="pokemon-info-btn pokemon-info-btn-release">RELEASE</button>`;
+        }else{
+            output = `<button class="pokemon-info-btn pokemon-info-btn-capture">CAPTURE</button>`;
+        }
+        $('.pokemon-info-action').html(output)
+    }
+
     return {
         renderList: (page, pokemons) => {
             const { next, previous, results } = pokemons;
@@ -29,7 +41,7 @@ const AppUI = ( () => {
                                 <figure class="pokemon_collection-image">
                                     <img 
                                         class="pokemon_collection-image-item"
-                                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" 
+                                        src="${BASE_URL_IMAGE}/${id}.png" 
                                         alt="hm"
                                     >
                                 </figure>
@@ -45,7 +57,8 @@ const AppUI = ( () => {
             $('.pokemon_collection').html( outputHTML );
 
         },
-        renderDetail: (data) => {
+        renderDetail: (data, obj) => {
+            
             let typesOutput = '', abilitiesOutput = '';
 
             const {id, name, abilities, types, weight, base_experience, height} = data;
@@ -65,10 +78,17 @@ const AppUI = ( () => {
                     abilitiesOutput += `<span>${item.ability.name}</span>`;
                 })
             }
+
+            //if obj is not null, pokemon already exists on my pokemon list
+            updateButtonAction(obj);
+
             $('.pokemon-info-desc-type').append(typesOutput);
             $('.pokemon-info-desc-abilities').append(abilitiesOutput);
-            $('#pokemon-image').attr('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`);
-            console.log('render detail', data);
-        }
+            $('#pokemon-image').attr('src',`${BASE_URL_IMAGE}/${id}.png`);
+        },
+        updateMyPokemon: (total) => {
+            $('.mypokemon-count').html(`(${total})`)
+        },
+        updateButtonAction: (data) => updateButtonAction(data)
     }
 })()

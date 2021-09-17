@@ -19,8 +19,36 @@ const RequestData = ( () => {
     }
 })();
 
+const MyPokemonList = ( () => {
+    let data = [];
+    const storageName = 'MyPokemon';
 
-const AppController = ( ( REQ, UI ) => {
+    const saveToLocalStorage = (data) => {
+        localStorage.setItem(storageName, JSON.stringify(data));
+    }
+
+    const getAllPokemon = () => {
+        return JSON.parse( localStorage.getItem(storageName) ) || [];
+    }
+
+    return {
+        addTolist: (pokemonObj) => {
+          data = JSON.parse( localStorage.getItem(storageName) ) || [];
+          
+          data.push(pokemonObj);
+
+          //save to localstorage
+          saveToLocalStorage(data);
+        },
+        releasePokemon: (id) => {
+
+        },
+        getPokemons: () => getAllPokemon()
+    }
+})();
+
+
+const AppController = ( ( REQ, UI, MY_POKEMON ) => {
 
     let PAGE = 1;
     let LAST_PAGE;
@@ -78,23 +106,55 @@ const AppController = ( ( REQ, UI ) => {
     }
 
     const getPokemonDetail = ( id ) => {
+        let currentPokemon = null;
 
         //Fetch Pokemeon detail
         REQ.get(`/api/list/${id}`, 'GET', 'JSON', {}, response => {
             if(response.status === 200){
-                UI.renderDetail(response.data);
+                currentPokemon = response.data;
+                let checkIfExist = MY_POKEMON.getPokemons().filter(item => item.id === currentPokemon.id)[0];
+                UI.renderDetail( response.data, checkIfExist );
             }
         }, err => {
             console.log(err);
         })
 
         //Event Listener tangkap pokemon
+        $(document).on('click', '.pokemon-info-btn-capture', function() {
+            $('#modalConfirm').css('display','block');
+        });
 
+        $('.modal-action-btn-cancel').on('click', function() {
+            $('#modalConfirm').css('display','none');
+        });
+
+        $('.modal-action-btn-submit').on('click', function() {
+            getProbability(res => {
+                if(res) {
+                    alert('Success capture pokemon')
+                    $('#modalConfirm').css('display','none');
+                    MY_POKEMON.addTolist( currentPokemon );
+                    UI.updateMyPokemon( MY_POKEMON.getPokemons().length );
+                    UI.updateButtonAction( currentPokemon );
+                }else{
+                    alert('Failed Capture, Try Again')
+                }
+            });
+        })
+
+    }
+
+    const getProbability = ( callback ) => {
+        
+        REQ.get('/api/random', 'GET','JSON', {}, response => {
+            callback(response.isCaptured);
+        })
     }
 
     return {
         init: () => {
             setRoute('#main');
+            UI.updateMyPokemon( MY_POKEMON.getPokemons().length );
         },
         setHeaderName: (dom, html) =>  $(dom).html(html),
         pokemonList: () => {
@@ -103,6 +163,10 @@ const AppController = ( ( REQ, UI ) => {
         },
         detail: (id) => {
             getPokemonDetail( id );
+        },
+        myPokemon: () => {
+            let data = MY_POKEMON.getPokemons();
+            console.log(data);
         }
     }
-})(RequestData, AppUI)
+})(RequestData, AppUI, MyPokemonList)

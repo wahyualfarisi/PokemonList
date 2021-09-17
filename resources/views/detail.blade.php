@@ -4,7 +4,7 @@
             <figure class="pokemon-info-img">
                 <img id="pokemon-image" src="{{ asset('img/loader-image.gif') }}" alt="" />
             </figure>
-            <button class="pokemon-info-btn pokemon-info-btn-capture">CAPTURE</button>
+           <div class="pokemon-info-action"></div>
         </div>
         
         <div class="pokemon-info-desc">
@@ -34,6 +34,18 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="modalConfirm" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Confirm Capture ?</h2>
+        </div>
+        <div class="modal-action">
+            <button class="modal-action-btn modal-action-btn-cancel">Cancel</button>
+            <button class="modal-action-btn modal-action-btn-submit">Submit</button>
+        </div>
+    </div>  
 </div>
 
 <script>

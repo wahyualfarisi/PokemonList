@@ -168,6 +168,9 @@ main {
 .pokemon-info-btn-capture {
   background-color: #1A381D;
 }
+.pokemon-info-btn-release {
+  background-color: #FF5C58;
+}
 .pokemon-info-desc-name {
   font-size: 2.2rem;
   color: var(--color-scale-gray-2);
@@ -221,4 +224,56 @@ main {
 }
 .pokemon-info-desc-abilities > span:not(:last-child) {
   margin-right: 0.9rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-header > h2 {
+  color: var(--color-scale-gray-1);
+}
+.modal-close {
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--color-scale-gray-1);
+}
+.modal-content {
+  background-color: var(--color-scale-gray-7);
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #888;
+  width: 40%;
+}
+.modal-action {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-action-btn {
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.modal-action-btn:not(:last-child) {
+  margin-right: 0.3rem;
+}
+.modal-action-btn-submit {
+  background-color: var(--color-scale-blue-7);
+  color: var(--color-scale-gray-1);
 }
