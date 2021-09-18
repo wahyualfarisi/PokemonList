@@ -47,6 +47,7 @@ const AppUI = ( () => {
                                 </figure>
                                 <div class="pokemon_collection-info">
                                     <h3 class="pokemon_collection-name">${item.name}</h3>
+                                    ${item.isCaptured ? `<span>Captured</span>` : '' } 
                                 </div>
                             </a>
                         </li>

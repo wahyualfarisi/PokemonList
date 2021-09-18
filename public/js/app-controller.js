@@ -36,14 +36,16 @@ const MyPokemonList = ( () => {
           data = JSON.parse( localStorage.getItem(storageName) ) || [];
           
           data.push(pokemonObj);
-
           //save to localstorage
           saveToLocalStorage(data);
         },
         releasePokemon: (id) => {
 
         },
-        getPokemons: () => getAllPokemon()
+        getPokemons: () => getAllPokemon(),
+        getNamePokemon: () => {
+            return getAllPokemon().map(item => item.name);
+        }
     }
 })();
 
@@ -78,11 +80,31 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
     const getPokemonList = ( page = PAGE ) => {
        $('.pokemon_collection').html('<div class="loader">Loading ... </div>')
        $('.pagination-btn').attr('disabled', true);
+
        REQ.get('/api/list', 'GET', 'JSON', { page }, response => {
            if(response.status === 200){
+
                 const { page, data, last_page} = response;
                 LAST_PAGE = last_page;
-                UI.renderList(page,data)
+                
+                //set label to pokemon was captured
+                let checkIsCaptured = data.results.map(item => {
+                    if(MY_POKEMON.getNamePokemon().includes(item.name)) {
+                        return {
+                            ...item,
+                            isCaptured: true
+                        }
+                    }
+                    return item
+                } )
+                
+                const obj = {
+                    next: data.next,
+                    previous: data.previous,
+                    results: checkIsCaptured
+                }
+
+                UI.renderList( page, obj)
            }
        }, err => {
            console.log(err);

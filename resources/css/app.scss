@@ -140,6 +140,7 @@ main {
     &-image {
         border: 1px solid var(--color-scale-gray-3);
         border-radius: .6rem;
+        position: relative;
 
         &-item {
             width: 100%;
@@ -150,7 +151,8 @@ main {
         margin: .8rem 0 .8rem 0;
 
         & > span {
-            background-color: var(--color-scale-gray-1);
+            border: 1px solid #FF5C58;
+            color: #FF5C58;
             padding: .2rem .8rem;
             border-radius: .4rem;
         }
