@@ -1,4 +1,8 @@
 <div class="pokemon-detail">
+    <div class="navlink">
+        <a href="#/list">&#8592; Go Back To List</a>
+    </div>
+    
     <div class="pokemon-info">
         <div>
             <figure class="pokemon-info-img">

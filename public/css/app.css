@@ -48,6 +48,19 @@ ul {
   padding: 0;
 }
 
+.navlink {
+  margin-bottom: 1rem;
+}
+.navlink > a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--color-scale-gray-2);
+  font-weight: 800;
+}
+.navlink > a:hover {
+  color: var(--color-scale-blue-7);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -169,6 +182,10 @@ main {
 }
 .pokemon-info-btn-capture {
   background-color: #1A381D;
+}
+.pokemon-info-btn-capture:disabled {
+  cursor: not-allowed;
+  background-color: transparent;
 }
 .pokemon-info-action > span {
   color: #FF5C58;
