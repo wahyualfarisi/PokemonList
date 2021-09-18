@@ -170,8 +170,10 @@ main {
 .pokemon-info-btn-capture {
   background-color: #1A381D;
 }
-.pokemon-info-btn-release {
-  background-color: #FF5C58;
+.pokemon-info-action > span {
+  color: #FF5C58;
+  font-weight: 800;
+  font-size: 0.8rem;
 }
 .pokemon-info-desc-name {
   font-size: 2.2rem;
@@ -279,4 +281,71 @@ main {
 .modal-action-btn-submit {
   background-color: var(--color-scale-blue-7);
   color: var(--color-scale-gray-1);
+}
+
+.myPokemon {
+  width: 50%;
+  margin: auto;
+}
+.myPokemon-search > input {
+  width: 100%;
+  background-color: var(--color-scale-gray-7);
+  outline: none;
+  border: none;
+  padding: 1rem;
+  color: var(--color-scale-gray-1);
+  border-radius: 0.3rem;
+}
+.myPokemon-collection {
+  margin-top: 2rem;
+}
+.myPokemon-collection > p {
+  color: var(--color-scale-gray-2);
+}
+.myPokemon-collection-item {
+  display: flex;
+  padding: 0.9rem;
+  background-color: var(--color-scale-gray-7);
+}
+.myPokemon-collection-item:not(:last-child) {
+  margin-bottom: 0.4rem;
+}
+.myPokemon-collection-item-image > img {
+  width: 100%;
+}
+.myPokemon-collection-item-info {
+  margin-right: auto;
+}
+.myPokemon-collection-item-info > h1 {
+  color: var(--color-scale-gray-2);
+}
+.myPokemon-collection-item-info-type {
+  margin-bottom: 0.5rem;
+}
+.myPokemon-collection-item-info-type > h4 {
+  color: var(--color-scale-gray-2);
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.myPokemon-collection-item-info-type > span {
+  background-color: var(--color-scale-gray-2);
+  padding: 0.2rem;
+  color: var(--color-scale-gray-8);
+  font-weight: 600;
+  border-radius: 0.2rem;
+}
+.myPokemon-collection-item-info-type > span:not(:last-child) {
+  margin-right: 0.4rem;
+}
+.myPokemon-collection-item-action {
+  align-self: flex-end;
+}
+.myPokemon-collection-item-action > button {
+  border: 1px solid #FF5C58;
+  outline: none;
+  color: #FF5C58;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }

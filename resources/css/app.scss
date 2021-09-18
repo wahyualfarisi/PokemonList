@@ -197,9 +197,14 @@ main {
         border-radius: .8rem;
         &-capture {
             background-color: #1A381D;
-        }
-        &-release {
-            background-color: #FF5C58;
+        }       
+    }
+
+    &-action {
+        & > span {
+            color: #FF5C58 ;
+            font-weight: 800;
+            font-size: .8rem;
         }
     }
     
@@ -327,3 +332,87 @@ main {
     }
 }
 //Modal -----
+
+//My Pokemon Lists
+.myPokemon {
+    width: 50%;
+    margin: auto;
+
+    &-search {
+        & > input {
+            width: 100%;
+            background-color: var(--color-scale-gray-7);
+            outline: none;
+            border: none;
+            padding: 1rem;
+            color: var(--color-scale-gray-1);
+            border-radius: .3rem;
+        }
+    }
+
+    &-collection {
+        margin-top: 2rem;
+
+        & > p {
+            color: var(--color-scale-gray-2);
+        }
+        &-item {
+            display: flex;
+            padding: .9rem;
+            background-color: var(--color-scale-gray-7);
+
+            &:not(:last-child) {
+                margin-bottom: .4rem;
+            }
+            &-image {
+                & > img {
+                    width: 100%;
+                }
+            }
+
+            &-info {
+                margin-right: auto;
+                & > h1 {
+                    color: var(--color-scale-gray-2);
+                }
+
+                &-type {
+                    margin-bottom: .5rem;
+                    & > h4 {
+                        color: var(--color-scale-gray-2);
+                        margin-top: .8rem;
+                        margin-bottom: .5rem;
+                    }
+                    & > span {
+                        background-color: var(--color-scale-gray-2);
+                        padding: .2rem;
+                        color: var(--color-scale-gray-8);
+                        font-weight: 600;
+                        border-radius: .2rem;
+
+                        &:not(:last-child){
+                            margin-right: .4rem;
+                        }
+                    }
+                }
+            }
+
+            &-action {
+                align-self: flex-end;
+
+                & > button {
+                    border: 1px solid #FF5C58;
+                    outline: none;
+                    color: #FF5C58;
+                    background-color: transparent;
+                    padding: .5rem;
+                    border-radius: .3rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+//My Pokemon Lists

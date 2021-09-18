@@ -33,14 +33,20 @@ const MyPokemonList = ( () => {
 
     return {
         addTolist: (pokemonObj) => {
-          data = JSON.parse( localStorage.getItem(storageName) ) || [];
+          data = getAllPokemon();
           
           data.push(pokemonObj);
           //save to localstorage
           saveToLocalStorage(data);
         },
         releasePokemon: (id) => {
+          data = getAllPokemon();
+          //filter data base on id of pokemon
+          let newData = data.filter(item => item.id !== id);
+          //save to localstorage
+          saveToLocalStorage(newData)
 
+          return newData;
         },
         getPokemons: () => getAllPokemon(),
         getNamePokemon: () => {
@@ -181,6 +187,27 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
         })
     }
 
+    const getMyPokemonList = () => {
+        let data = MY_POKEMON.getPokemons();
+
+        //event listener search
+        $('[name=search]').on('keyup', function(e) {
+            let value = e.target.value;
+            //render filter pokemon base on input value
+            UI.renderMyPokemon(MY_POKEMON.getPokemons(), value)
+        });
+
+        $(document).on('click', '.btn-release', function() {
+            let id = $(this).data('id');
+            MY_POKEMON.releasePokemon(id);
+            UI.updateMyPokemon( MY_POKEMON.getPokemons().length );
+            $(`.myPokemon-collection-item-${id}`).remove();
+        })
+
+        //render my pokemon to UI
+        UI.renderMyPokemon(data, "");
+    }
+
     return {
         init: () => {
             setRoute('#main');
@@ -195,8 +222,7 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
             getPokemonDetail( id );
         },
         myPokemon: () => {
-            let data = MY_POKEMON.getPokemons();
-            console.log(data);
+            getMyPokemonList();
         }
     }
 })(RequestData, AppUI, MyPokemonList)

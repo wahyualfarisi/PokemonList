@@ -4,7 +4,7 @@ const AppUI = ( () => {
     const updateButtonAction = ( data ) => {
         let output;
         if(data) {
-            output = `<button class="pokemon-info-btn pokemon-info-btn-release">RELEASE</button>`;
+            output = `<span>CAPTURED</span>`;
         }else{
             output = `<button class="pokemon-info-btn pokemon-info-btn-capture">CAPTURE</button>`;
         }
@@ -90,6 +90,64 @@ const AppUI = ( () => {
         updateMyPokemon: (total) => {
             $('.mypokemon-count').html(`(${total})`)
         },
-        updateButtonAction: (data) => updateButtonAction(data)
+        updateButtonAction: (data) => updateButtonAction(data),
+        renderMyPokemon: (data, searchValue) => {
+            let output = '';
+            
+
+            if(data.length > 0) {
+
+                data.filter(item => {
+                    
+                    if(searchValue === ""){
+                        return item;
+                    }else if(item.name && item.name.includes(searchValue) ){
+                        return item;  
+                    }
+                }).forEach(item => {
+                    console.log(item)
+                    let typesOutput = '', abilityOutput = '';
+
+                    if(item.types.length > 0) {
+                        item.types.forEach(item => {
+                            typesOutput += ` <span>${item.type.name}</span>`
+                        })
+                    }
+                    if(item.abilities.length > 0){
+                        item.abilities.forEach(item => {
+                            abilityOutput += `<span>${item.ability.name}</span>`;
+                        })
+                    }
+                    output += `
+                        <li class="myPokemon-collection-item myPokemon-collection-item-${item.id}">
+                            <figure class="myPokemon-collection-item-image">
+                                <img src="${BASE_URL_IMAGE}/${item.id}.png" alt="">
+                            </figure>
+                            <div class="myPokemon-collection-item-info">
+                                <h1>${item.name}</h1>
+                                <div class="myPokemon-collection-item-info-type">
+                                    <h4>Types</h4>
+                                    ${typesOutput}
+                                </div>
+                                <div class="myPokemon-collection-item-info-type">
+                                    <h4>Abilities</h4>
+                                    ${abilityOutput}
+                                </div>
+                            </div>
+                            <div class="myPokemon-collection-item-action">
+                                <button data-id="${item.id}" class="btn-release">Release</button>
+                            </div>
+                        </li>
+                    `
+                })
+                
+            }else{
+                output = '<p>My Pokemon is empty</p>';
+            }
+            
+            
+            $('.myPokemon-collection').html(output)
+            
+        }
     }
 })()
