@@ -1,3 +1,5 @@
 {
+    "/js/app-ui.js": "/js/app-ui.js",
+    "/js/app-controller.js": "/js/app-controller.js",
     "/css/app.css": "/css/app.css"
 }
