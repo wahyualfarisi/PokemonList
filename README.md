@@ -4,6 +4,6 @@ This application displays a list of Pokemon, details of Pokemon, and My Pokemon.
 
 ## Demo
 
-you can check domo at  [here](https://pip.pypa.io/en/stable/).
+you can check domo at  [here](https://pokemon.alfarisilab.com/).
 
 ![alt text](https://github.com/wahyualfarisi/pokemonList/blob/master/screenshoot/img.png?raw=true)
