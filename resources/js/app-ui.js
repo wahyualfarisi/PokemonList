@@ -13,6 +13,7 @@ const AppUI = ( () => {
 
     return {
         renderList: (page, pokemons) => {
+            console.log(pokemons)
             const { next, previous, results } = pokemons;
             $('.paging-number').text(page);
 

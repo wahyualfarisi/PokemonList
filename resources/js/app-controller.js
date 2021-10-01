@@ -208,15 +208,30 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
         UI.renderMyPokemon(data, "");
     }
 
+    const selectLimitLEvent = () => {
+        console.log('select limit event running...')
+        //Event dom
+        $('[name=select-limit]').on('change', function() {
+            let val = $(this).val();
+            if(!val) return;
+
+            //
+            alert(val)
+        })
+    }
+
     return {
         init: () => {
+            console.log('init...')
             setRoute('#main');
             UI.updateMyPokemon( MY_POKEMON.getPokemons().length );
         },
         setHeaderName: (dom, html) =>  $(dom).html(html),
         pokemonList: () => {
+            console.log('pokemon lists')
             getPokemonList()
             paginationListener();
+            selectLimitLEvent();
         },
         detail: (id) => {
             getPokemonDetail( id );

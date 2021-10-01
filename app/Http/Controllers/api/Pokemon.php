@@ -22,9 +22,14 @@ class Pokemon extends Controller
             'errors' => $validateRequest->errors()
         ]);
 
+        //Default Limit
         $limit = 10; // only 10 pokemon for each page
 
-        $start = ($request->page - 1) * $limit; //Calculate offset
+        if($request->get('limit') ) {
+            $limit = $request->limit;
+        }
+
+        $start = ( $request->page - 1) * $limit; //Calculate offset
 
         $response = Http::get($this->API_URL."?offset=".$start."&limit=".$limit);
 
@@ -33,9 +38,10 @@ class Pokemon extends Controller
             $last_page = ceil( $total / $limit );
             return response()->json([
                 'status' => $response->status(),
+                'limit' => $limit,
                 'page'   => $request->page,
                 'last_page' => $last_page,
-                'data'   => $response->json(),
+                'data'   => $response->json()
             ]);
         } else { 
             return response()->json([

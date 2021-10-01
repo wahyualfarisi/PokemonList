@@ -12,23 +12,37 @@ const AppUI = ( () => {
     }
 
     return {
-        renderList: (page, pokemons) => {
+        renderList: (page, pokemons, rangePage) => {
+            
             const { next, previous, results } = pokemons;
+
             $('.paging-number').text(page);
+            $('.total_pokemon').text(results.length)
 
-             if(!previous) {
-                $('.pagination-prev').attr('disabled', true);
-            }else{
-                $('.pagination-prev').attr('disabled', false);
-                $('.pagination-first').attr('disabled', false);
 
+
+            //  if(!previous) {
+            //     $('.pagination-prev').attr('disabled', true);
+            // }else{
+            //     $('.pagination-prev').attr('disabled', false);
+            //     $('.pagination-first').attr('disabled', false);
+
+            // }
+            //  if(!next) {
+            //     $('.pagination-next').attr('disabled', true)
+            //  }else{
+            //     $('.pagination-next').attr('disabled', false)
+            //     $('.pagination-last').attr('disabled', false)
+            //  }
+
+            //output pagination
+            let pagination_output = '';
+            if(rangePage.length > 0){
+                rangePage.slice(0,4).forEach(item => {
+                    pagination_output += `<button>${item}</button>`
+                })
             }
-             if(!next) {
-                $('.pagination-next').attr('disabled', true)
-             }else{
-                $('.pagination-next').attr('disabled', false)
-                $('.pagination-last').attr('disabled', false)
-             }
+            $('.pagination-action').html(pagination_output);
 
             //show pokemon list ---
             let outputHTML = '';

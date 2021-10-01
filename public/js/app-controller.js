@@ -83,14 +83,14 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
         })
     }
 
-    const getPokemonList = ( page = PAGE ) => {
+    const getPokemonList = ( page = PAGE, limit = 10 ) => {
        $('.pokemon_collection').html('<div class="loader">Loading ... </div>')
        $('.pagination-btn').attr('disabled', true);
 
-       REQ.get('/api/list', 'GET', 'JSON', { page }, response => {
+       REQ.get('/api/list', 'GET', 'JSON', { page, limit }, response => {
            if(response.status === 200){
-
-                const { page, data, last_page} = response;
+                console.log(response)
+                const { page, data, last_page, limit} = response;
                 LAST_PAGE = last_page;
                 
                 //set label to pokemon was captured
@@ -110,7 +110,13 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
                     results: checkIsCaptured
                 }
 
-                UI.renderList( page, obj)
+                //range page
+                let pageCount = Math.ceil( data.count / parseInt(limit) );
+                let rangePage = Array.from({ length: pageCount }, (_,idx) => idx + 1 );
+
+            
+                //Render to UI
+                UI.renderList( page, obj, rangePage)
            }
        }, err => {
            console.log(err);
@@ -208,6 +214,19 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
         UI.renderMyPokemon(data, "");
     }
 
+    const selectLimitLEvent = () => {
+        console.log('select limit event running...')
+        //Event dom
+        $('[name=select-limit]').on('change', function() {
+            let val = $(this).val();
+            if(!val) return;
+            
+            getPokemonList(PAGE = 1, val );
+
+
+        })
+    }
+
     return {
         init: () => {
             setRoute('#main');
@@ -217,6 +236,7 @@ const AppController = ( ( REQ, UI, MY_POKEMON ) => {
         pokemonList: () => {
             getPokemonList()
             paginationListener();
+            selectLimitLEvent();
         },
         detail: (id) => {
             getPokemonDetail( id );
